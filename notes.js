@@ -1,30 +1,16 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
-// const getNotes = function(){
-//     return 'Your notes...'
-// }
 
-const getNotes = ()=> 'Your notes...'
+const getNotes = ()=> {
+    const notes = loadNotes()
 
-// const addNote = function(title, body){
-//     const notes = loadNotes()
+    console.log(chalk.blue.inverse('Your notes:'))
 
-//     const duplicateNotes = notes.filter(function (note){
-//         return note.title === title
-//     })
-
-//     if(duplicateNotes.length === 0){
-//         notes.push({
-//             title: title,
-//             body: body
-//         })
-//         saveNotes(notes)
-//         console.log('New note added!')
-//     } else{
-//         console.log('Note title taken!')
-//     }
-// }
+    notes.forEach((note) =>{
+        console.log(note.title)
+    })
+}
 
 const addNote = (title, body) => {
     const notes = loadNotes()
